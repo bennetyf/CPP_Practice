@@ -90,5 +90,44 @@ namespace Basics{
         Init_list():ch{nullptr}{}
         ~Init_list(){delete [] ch;}
     };
+
+    //Copy and Move Operations
+    class CoMo{
+    public:
+        CoMo(){}//Default Constructor
+        CoMo(int);//Single-para Constructor
+        CoMo(int, string);//Double-para Constructor
+        CoMo(std::initializer_list<char>, string);//Initializer List Constructor
+        ~CoMo();//Destructor
+
+        //Copy Construction
+        CoMo(const CoMo &);
+        //Copy Assignment
+        CoMo&operator=(const CoMo &);
+
+        //Move Construction
+        CoMo(CoMo && source);
+        //Move Assignment
+        CoMo& operator= (CoMo &&);
+
+        int size;
+        char * ch;
+        string s;
+    };
+    class Sub_CoMo:public CoMo{
+    public:
+        Sub_CoMo():CoMo{{'a','w'},"HelloWorld"},sub_a{2},sub_s{"SUB"}{}
+        Sub_CoMo(const Sub_CoMo & source):CoMo{source},sub_a{source.sub_a},sub_s{source.sub_s}{}
+        int sub_a;
+        string sub_s;
+    };
+    void myprint(CoMo);
+    void myprint2(CoMo &);
+    CoMo MoveTest(CoMo);
+    CoMo MoveTest2(CoMo);
+
+    class OP{
+
+    };
 }
 #endif //CONCRETECLASS_BASICS_H

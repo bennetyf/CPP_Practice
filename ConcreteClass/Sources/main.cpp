@@ -67,10 +67,49 @@ int main() {
     cout << "Default Initialization: " << A.t << endl;
     */
 
-    ///*Initializer_list Constructor
+    /*Initializer_list Constructor
     Init_list A{'a','b','c','d'};
     cout << "Initializer list : " << *A.ch << endl;
     Init_list B={'e','f'};
-    cout << "Initializer list : " << B.ch[1œ] << endl;
+    cout << "Initializer list : " << B.ch[1] << endl;
+    */
+
+    /*Copy
+    CoMo A{{'f','b','c','d','e'}, "Hello"};
+    CoMo B{{'g','b'},"World"};
+    CoMo C{A};  //Copy Construction
+    A=B;        //Copy Assignment
+    myprint2(A); //Copy Construction in function argument passing
+    myprint(A);
+    //myprint2(B);
+    //myprint2(C);
+
+    //Base Class Copy
+    Sub_CoMo SubA{};
+    Sub_CoMo SubB{SubA};
+    */
+
+    /*Move
+    CoMo A{{'f','b','c','d','e'}, "Hello"};
+    CoMo B{{'g','b'},"World"};
+    cout << "--------------------" << endl;
+    auto C=MoveTest({{'d'},"Hi~~"});
+    cout << "--------------------" << endl;
+    auto D=MoveTest(A);
+    cout << "--------------------" << endl;
+    MoveTest(A);
+    cout << "--------------------" << endl;
+    CoMo E=MoveTest2(A);
+    cout << "--------------------" << endl;
+    MoveTest2(A);
+    cout << "--------------------" << endl;
+    //A=B;        //Copy Assignment
+    //B=move(C);  //Move Assignment
+    //myprint(B);
+    //myprint(C);
+     */
+
+    /*Operator Overloading*/
+
     return 0;
 }//On exiting the main function scope,destructors are called in the reverse order.
